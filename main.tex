@@ -1,0 +1,41 @@
+% Document Setup
+\documentclass[12pt]{report}
+\linespread{2.0}
+
+% Packages
+\usepackage[margin=1.0in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{bm}
+\usepackage{import}
+\setlength{\marginparwidth }{2cm}
+\usepackage{todonotes}
+\usepackage{footnote}
+\usepackage[bottom]{footmisc}
+\addtolength{\skip\footins}{1.2pc plus 5pt}
+\setlength{\footnotesep}{1.2pc}
+\usepackage[
+backend=biber,
+style=alphabetic,
+sorting=ynt
+]{biblatex}
+\addbibresource{./src/bibliography.bib}
+
+% Title Page
+\title{ME 3295 Quadcopter Project}
+\author{Michael Bernard}
+\date{2020-04-26}
+
+\begin{document}
+
+\maketitle
+
+% Source Files
+% TODO: make these
+
+% Bibliography
+\printbibliography
+
+% Document End
+\end{document}
