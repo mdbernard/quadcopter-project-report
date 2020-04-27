@@ -1,7 +1,7 @@
 % Document Setup
 \documentclass[12pt]{report}
 \linespread{2.0}
-
+ 
 % Packages
 \usepackage[margin=1.0in]{geometry}
 \usepackage[utf8]{inputenc}
@@ -15,12 +15,12 @@
 \usepackage[bottom]{footmisc}
 \addtolength{\skip\footins}{1.2pc plus 5pt}
 \setlength{\footnotesep}{1.2pc}
-\usepackage[
-backend=biber,
-style=alphabetic,
-sorting=ynt
-]{biblatex}
-\addbibresource{./src/bibliography.bib}
+% \usepackage[
+% backend=biber,
+% style=alphabetic,
+% sorting=ynt
+% ]{biblatex}
+% \addbibresource{./src/bibliography.bib}
 
 % Title Page
 \title{ME 3295 Quadcopter Project}
@@ -32,10 +32,10 @@ sorting=ynt
 \maketitle
 
 % Source Files
-% TODO: make these
+\import{./}{src/introduction.tex}
 
 % Bibliography
-\printbibliography
+% \printbibliography
 
 % Document End
 \end{document}
