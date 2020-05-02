@@ -1,0 +1,27 @@
+\section*{Physical Forces and Moments}
+
+Each of the rotors induces a lifting force on the vehicle:
+\begin{equation}
+    f_{i} = k \omega_i^2
+\end{equation}
+and a torque about the rotor axis: $\tau_{M_{i}} = b \omega_i^2 + I_M \dot{\omega}_i ~,$ where $\omega$ is the rotor angular velocity. The value of $\dot{\omega}_i$ is considered small, and so the torque equation is simplified to 
+\begin{equation}
+    \tau_{M_{i}} = b \omega_i^2 \quad .
+\end{equation}
+
+The 6-DOF model has six inputs: the $x$, $y$, and $z$ thruster force components ($X_T$, $Y_T$, $Z_T$), and the $x$, $y$, and $z$ moment components ($l$, $m$, $n$). The physical quadcopter generates these forces and moments using its four propellers.
+
+These force and moment components are resolved in the quadcopter body frame. Since the propellers can only induce a force in the ``up'' direction ($z$) in the body frame, the $x$ and $y$ force components are equal to zero. The $z$ force component is equal to the propeller lift constant $k$ multiplied by the sum of each propeller's angular velocity squared:
+\begin{align}
+    X_T &= Y_T = 0 \\
+    Z_T &= k\sum_{i=1}^{4}\omega_i^2 \quad .
+\end{align}
+
+Examining Figure 1, the moment about the $x$ axis is due to the net force of propellers $2$ and $4$, and the moment about the $y$ axis is due to the net force of propellers $1$ and $3$. The net rotation about the $z$ axis is due to the net torques induced by each propeller about their own central axis. The signs for the terms in equation (18) are due to the clockwise rotation of propellers $2$ and $4$, and the anticlockwise rotation of propellers $1$ and $3$.
+\begin{align}
+    l &= r(f_4 - f_2) \\
+    m &= r(f_3 - f_1) \\
+    n &= -\tau_{M1} + \tau_{M2} - \tau_{M3} + \tau_{M4} \quad .
+\end{align}
+
+A Simulink implementation of the above equations as a block is shown in Figure 16.

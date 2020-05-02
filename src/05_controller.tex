@@ -1,0 +1,44 @@
+\section*{Controller}
+
+% I/O Description
+The system has four reference inputs: desired height, and 3 Euler angles representing desired orientation. The controller takes the error in these four values and outputs values for $Z_T$, $l$, $m$, and $n$ which would stabilize the system. These values go through the control allocation block, where they are converted into propeller angular velocities.
+
+% One at a Time
+To simplify the creation of the controller, it was assumed that the single system of four inputs and four outputs was actually four systems of one input and one output each:
+\begin{itemize}
+    \item $h \rightarrow Z_T$,
+    \item $\phi \rightarrow l$,
+    \item $\theta \rightarrow m$,
+    \item $\psi \rightarrow n$ .
+\end{itemize}
+
+In designing each of the four controllers, it was assumed that the inputs to the other three controllers was zero. This yields controllers which are not ideal when multiple inputs are given at once, but which do stabilize the system for one step input at a time. The reference step inputs given were:
+\begin{itemize}
+    \item $h_r = 1 ~ \text{m}$
+    \item $\phi_r = 0.2 ~ \text{rad}$
+    \item $\theta_r = 0.2 ~ \text{rad}$
+    \item $\psi_r = 0.2 ~ \text{rad}$
+\end{itemize}
+
+% 2% Settling Time Definition
+As a measure of controller performance, we introduce the following scoring metric:
+\begin{equation}
+    T_s = T_\phi + T_\theta + T_\psi + 0.01T_h,
+\end{equation}
+where each $T$ term is the time taken until the system response settles into the region $\pm 2\%$ of the reference input value for the variable in the subscript.
+
+% Design Process
+Simulink's built-in PID controller block includes an automatic tuning function. However, due to the nonlinearity of the system, the automatic tuning functionality was imperfect, and for each controller did not succeed in stabilizing the actual system. However, it was not necessary to tune the P, I, and D gains for each controller individually.
+
+The automatic tuner is a function of just two parameters: ``Response Time'' and ``Transient Behavior.'' Adjusting these two settings automatically adjusts the P, I, and D gains appropriately, reducing the time to tune the controller. For each controller, the tuning process followed four steps:
+\begin{enumerate}
+    \item By trial-and-error, find a pair of values for Response Time and Transient Behavior such that the system's response does not go to infinity.
+    \item By trial-and-error, adjust the Response Time value until the settling time in the response cannot be minimized further.
+    \item By trial-and-error, adjust the Transient Behavior value until the settling time in the response cannot be minimized further.
+    \item Export the P, I, D and N values from the tuner to the PID controller block.
+\end{enumerate}
+
+% Final Design
+The best values for each of the four controllers' gains are listed in Table 2. The controller block from the Simulink implementation is shown in Figure 18. The complete Simulink diagram, with the inputs, controller, control allocation, time delay, physical forces and moments, 6-DOF model, and feedback paths is shown in Figure 19.
+
+The system response plots for each of the four outputs are shown in Figures 20 through 23.

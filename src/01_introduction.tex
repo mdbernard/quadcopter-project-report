@@ -1,0 +1,17 @@
+\section*{Introduction}
+
+In this report, we detail the development of a controller for the quadcopter shown in Figure 1. The four system inputs are height, and three Euler angles representing orientation. The inputs are step inputs. The controller design goals were to:
+\begin{itemize}
+    \item stabilize the closed-loop sytem for each input,
+    \item ensure zero steady-state error for each input,
+    \item minimize settling time for each input
+\end{itemize}
+with a time-delay of 0.2 seconds.
+
+We begin in the 6 Degree of Freedom Model section by detailing the 6 Degree of Freedom (6-DOF) model for an aircraft. The 6-DOF model's inputs are the three Cartesian force and moment components, but the vehicle can only control each of these indirectly via propeller rotation. In the Physical Forces and Moments section, we detail the relation between the propeller angular velocities and these force and moment components.
+
+The controller inputs are the current height and Euler angle errors, and the outputs are the appropriate force and moment components to stabilize the system. In the Control Allocation section, we inverse the relations derived in the Physical Forces and Moments section to yield propeller angular velocities given the force and moment components.
+
+In the Controller Design section, we describe the development of the controller using Simulink. We include output plots demonstrating our controller meets design requirements.
+
+In each section, we include a Simulink implementation of that section's model. A fully connected model is included at the end of this report. The numerical values for all variables used in each equation are given in Table 1 at the end of this report.

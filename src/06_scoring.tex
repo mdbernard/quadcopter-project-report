@@ -1,0 +1,19 @@
+\section*{Results}
+
+Each output response is considered ``settled'' at time $t_s$ such that for the given reference value $r$, the response never exceeds $r \pm 0.02r$. For the height, with a reference of $1$ m, the bounds are $1.02$ m and $0.98$ m. For the Euler angles, each with references of $0.2$ rad, the bounds are $2.04$ rad and $1.96$ rad.
+
+It was visually determined that each response was successfully settled by checking that the value had an error approaching zero within the first 100 seconds of response (seen in Figures 20 through 23). The numerical arrays were exported to MatLab, from which it could be determined the final time each value was out of the settling boundaries.
+
+The settling times for each of the four values were:
+\begin{itemize}
+    \item $T_h \approx 37.40$ seconds
+    \item $T_\phi \approx 4.01$ seconds
+    \item $T_\theta \approx 4.01$ seconds
+    \item $T_\psi \approx 13.55$ seconds
+\end{itemize}
+
+Calculating the score from equation (20):
+\begin{align*}
+    T_s &= 4.01 + 4.01 + 13.55 + 0.01 \cdot 37.40 \\
+        &= \boxed{21.94} \quad .
+\end{align*}

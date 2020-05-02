@@ -1,0 +1,69 @@
+\section*{Control Allocation}
+
+The purpose of control allocation is to map the controller's output ($Z_T$, $l$, $m$, $n$) to propeller angular velocities required to induce those values.
+
+Equations 15, 16, 17, and 18 can be written as the following matrix equation:
+\begin{equation*}
+    \begin{bmatrix}
+        k & k & k & k \\ 
+        0 & -rk & 0 & rk \\ 
+        -rk & 0 & rk & 0 \\ 
+        -b & b & -b & b
+    \end{bmatrix}
+    \begin{bmatrix}
+        \omega_1^2 \\ 
+        \omega_2^2 \\ 
+        \omega_3^2 \\ 
+        \omega_4^2
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        Z_T \\ 
+        l \\ 
+        m \\ 
+        n
+    \end{bmatrix} \quad .
+\end{equation*}
+
+By left-multiplying each side of this equation by the inverse of the matrix on the left-hand side, we can calculate the squared angular velocities of each propeller:
+\begin{equation}
+    \begin{bmatrix}
+        \omega_1^2 \\ 
+        \omega_2^2 \\ 
+        \omega_3^2 \\ 
+        \omega_4^2
+    \end{bmatrix}
+    = 
+    \begin{bmatrix}
+        k & k & k & k \\ 
+        0 & -rk & 0 & rk \\ 
+        -rk & 0 & rk & 0 \\ 
+        -b & b & -b & b
+    \end{bmatrix}^{\text{\Large -1}}
+    \begin{bmatrix}
+        Z_T \\ 
+        l \\ 
+        m \\ 
+        n
+    \end{bmatrix} \quad .
+\end{equation}
+
+The parameters of the matrix are all known, and given in Table 1. The values of $Z_T$, $l$, $m$, and $n$ are output by the controller block. The numerical inverse of the matrix above is:
+\begin{equation*}
+    \begin{bmatrix}
+        k & k & k & k \\ 
+        0 & -rk & 0 & rk \\ 
+        -rk & 0 & rk & 0 \\ 
+        -b & b & -b & b
+    \end{bmatrix}^{\text{\Large -1}}
+    =
+    10^6
+    \begin{bmatrix}
+        0.0839 & 0 & -0.7457 & -2.193 \\ 
+        0.0839 & -0.7457 & 0 & 2.193 \\ 
+        0.0839 & 0 & 0.7457 & -2.193 \\ 
+        0.0839 & 0.7457 & 0 & 2.193
+    \end{bmatrix} \quad .
+\end{equation*}
+
+A Simulink implementation of equation 19 can be seen in Figure 17. Note that the block outputs the squared angular velocities. The Physical Forces and Moments block in the implementation uses only the squared angular velocities, so the square root was not taken here in order to reduce computational complexity.

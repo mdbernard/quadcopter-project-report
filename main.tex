@@ -9,6 +9,9 @@
 \usepackage{amsmath}
 \usepackage{bm}
 \usepackage{import}
+\usepackage{graphicx}
+\graphicspath{ {./img/} }
+\usepackage[rightcaption]{sidecap}
 \setlength{\marginparwidth }{2cm}
 \usepackage{todonotes}
 \usepackage{footnote}
@@ -32,9 +35,14 @@
 \maketitle
 
 % Source Files
-\import{./}{src/introduction.tex}
-\import{./}{src/methodology.tex}
-\import{./}{src/physical_system.tex}
+\import{./}{src/01_introduction.tex}
+\import{./}{src/02_6dof.tex}
+\import{./}{src/03_physical_force_moment.tex}
+\import{./}{src/04_control_alloc.tex}
+\import{./}{src/05_controller.tex}
+\import{./}{src/06_scoring.tex}
+\import{./}{src/07_conclusion.tex}
+\import{./}{src/08_figs_and_tabs.tex}
 
 % Bibliography
 % \printbibliography
