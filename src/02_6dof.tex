@@ -23,7 +23,7 @@ Rather than define all variables following each equation, all variables are defi
     \dot{W} &= QU - PV + g_D\cos(\phi)\cos(\theta) + \dfrac{Z_T}{m} \quad\quad .
 \end{align}
 
-Figures 2, 3, and 4 show the simplified equations 2, 3, and 4 above as implemented in Simulink. Figure 5 shows how these blocks are connected at a high-level in a Force Equations block in Simulink.
+Figures 2, 3, and 4 show the simplified equations (2), (3), and (4) above as implemented in Simulink. Figure 5 shows how these blocks are connected at a high-level in a Force Equations block in Simulink.
 
 The Kinematic Equations for the Euler Angles of the vehicle in the inertial frame are as follows:
 \begin{align}
@@ -47,7 +47,7 @@ Examining the simplified inertia matrix in equation (1), the Moment Equations si
 \end{align}
 \noindent Note here that $l$, $m$, and $n$ are the $x$, $y$, and $z$ components of moment due to the propellers ($l$ and $m$ are not the length and mass values given in Table 1).
 
-Figures 10, 11, and 12 show an implementation of equations in Simulink. Figure 13 shows how these blocks are connected at a high-level in a Moment Equations block.
+Figures 10, 11, and 12 show an implementation of the equations above in Simulink. Figure 13 shows how these blocks are connected at a high-level in a Moment Equations block.
 
 We are concerned only with altitude control of the vehicle, not lateral control. As such, we use only the following Navigation Equation:
 \begin{equation}

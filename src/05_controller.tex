@@ -28,7 +28,12 @@ As a measure of controller performance, we introduce the following scoring metri
 where each $T$ term is the time taken until the system response settles into the region $\pm 2\%$ of the reference input value for the variable in the subscript.
 
 % Design Process
-Simulink's built-in PID controller block includes an automatic tuning function. However, due to the nonlinearity of the system, the automatic tuning functionality was imperfect, and for each controller did not succeed in stabilizing the actual system. However, it was not necessary to tune the P, I, and D gains for each controller individually.
+Simulink's built-in PID Controller block was used for each of the four controllers. This block represents a transfer function of the form:
+\begin{equation*}
+    P + I\dfrac{1}{s} + D\dfrac{N}{1 + N\dfrac{1}{s}} \quad .
+\end{equation*}
+
+Simulink's built-in PID Controller block includes an automated tuning function using the PID Tuner App. However, due to the nonlinearity of the system, the automatic tuning functionality was imperfect, and for each controller did not succeed in stabilizing the actual system. However, the PID Tuner App was still used to find stable gains for the controllers.
 
 The automatic tuner is a function of just two parameters: ``Response Time'' and ``Transient Behavior.'' Adjusting these two settings automatically adjusts the P, I, and D gains appropriately, reducing the time to tune the controller. For each controller, the tuning process followed four steps:
 \begin{enumerate}

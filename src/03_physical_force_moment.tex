@@ -17,11 +17,11 @@ These force and moment components are resolved in the quadcopter body frame. Sin
     Z_T &= k\sum_{i=1}^{4}\omega_i^2 \quad .
 \end{align}
 
-Examining Figure 1, the moment about the $x$ axis is due to the net force of propellers $2$ and $4$, and the moment about the $y$ axis is due to the net force of propellers $1$ and $3$. The net rotation about the $z$ axis is due to the net torques induced by each propeller about their own central axis. The signs for the terms in equation (18) are due to the clockwise rotation of propellers $2$ and $4$, and the anticlockwise rotation of propellers $1$ and $3$.
+Examining Figure 1, the moment about the $x$ axis is due to the net force of propellers $2$ and $4$, and the moment about the $y$ axis is due to the net force of propellers $1$ and $3$. The net rotation about the $z$ axis is due to the net torques induced by each propeller about their own central axes. The signs for the terms in equation (18) are due to the clockwise rotation of propellers $2$ and $4$, and the anticlockwise rotation of propellers $1$ and $3$.
 \begin{align}
     l &= r(f_4 - f_2) \\
     m &= r(f_3 - f_1) \\
     n &= -\tau_{M1} + \tau_{M2} - \tau_{M3} + \tau_{M4} \quad .
 \end{align}
 
-A Simulink implementation of the above equations as a block is shown in Figure 16.
+A Simulink implementation of the above equations is shown in Figure 16.

@@ -34,10 +34,10 @@
     \begin{tabular}{|c|l|l|l|l|}
     \hline
     \textbf{Controller} & \multicolumn{1}{c|}{\textbf{P}} & \multicolumn{1}{c|}{\textbf{I}} & \multicolumn{1}{c|}{\textbf{D}} & \multicolumn{1}{c|}{\textbf{N}}        \\ \hline
-    h                   & 0.667090759823057               & 0.0833409544861024              & 1.3246835477396                 & 326.5222788690   \\ \hline
-     $\Phi$                   & 0.006797426033441             & 0.0001265287568533            & 0.0097998134935             & 11.93198682033  \\ \hline
-         $\Theta$               & 0.006797426033441             & 0.0001265287568533            & 0.0097998134935             & 11.93198682033  \\ \hline
-        $\Psi$                & 3.04588477387e-11             & 1.691044011866e-13            & 2.5758358949e-10            & 0.520960333232 \\ \hline
+    h  & 0.66709075982305  & 0.083340954486102   & 1.3246835477396  & 326.52227886903   \\ \hline
+     $\phi$     & 0.00679742603344  & 0.000126528756853   & 0.0097998134935   & 11.93198682033  \\ \hline
+         $\theta$   & 0.00679742603344    & 0.000126528756853    & 0.0097998134935    & 11.93198682033  \\ \hline
+        $\psi$   & 0.00893864028383   & 0.001100306041983    & 0.0157373637319    & 6.9488800045551 \\ \hline
     \end{tabular}
     \caption{PID Controller Parameters for Simulink}
 \end{table}
@@ -84,21 +84,21 @@
 \begin{figure}[h]
     \centering
     \includegraphics[width=\textwidth]{06_Phid}
-    \caption{$\dot{\Phi}$ Equation (5) Simulink Implementation}
+    \caption{$\dot{\phi}$ Equation (5) Simulink Implementation}
     \label{fig:phid}
 \end{figure}
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=\textwidth]{07_Thetad}
-    \caption{$\dot{\Theta}$ Equation (6) Simulink Implementation}
+    \caption{$\dot{\theta}$ Equation (6) Simulink Implementation}
     \label{fig:thetad}
 \end{figure}
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=\textwidth]{08_Psid}
-    \caption{$\dot{\Psi}$ Equation (7) Simulink Implementation}
+    \caption{$\dot{\psi}$ Equation (7) Simulink Implementation}
     \label{fig:psid}
 \end{figure}
 
@@ -149,7 +149,7 @@
 % 6-DOF Model
 \begin{figure}[h]
     \centering
-    \includegraphics[width=1.25\textwidth, angle=90]{15_6dof}
+    \includegraphics[width=\textwidth]{15_6dof}
     \caption{All 6-DOF Model Subsystems Connected in Simulink}
     \label{fig:6dof}
 \end{figure}
@@ -197,20 +197,20 @@
 \begin{figure}[h]
     \centering
     \includegraphics[width=\textwidth]{21_phi}
-    \caption{Phi Response Plot}
+    \caption{$\phi$ Response Plot}
     \label{fig:phi}
 \end{figure}
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=\textwidth]{22_theta}
-    \caption{Theta Response Plot}
+    \caption{$\theta$ Response Plot}
     \label{fig:theta}
 \end{figure}
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=\textwidth]{23_psi}
-    \caption{Psi Response Plot}
+    \caption{$\psi$ Response Plot}
     \label{fig:psi}
 \end{figure}
